@@ -50,6 +50,21 @@ powershell.exe -command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Window
 echo Setting up strong passwords for user accounts...
 net user Administrator Password123
 
+
+:: Set custom cursors as default
+echo Setting custom cursors as default...
+reg add "HKCU\Control Panel\Cursors" /v Arrow /t REG_SZ /d "C:\Windows\Cursors\my_arrow.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v Wait /t REG_SZ /d "C:\Windows\Cursors\my_wait.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v AppStarting /t REG_SZ /d "C:\Windows\Cursors\my_appstarting.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v Help /t REG_SZ /d "C:\Windows\Cursors\my_help.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v No /t REG_SZ /d "C:\Windows\Cursors\my_no.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v NWPen /t REG_SZ /d "C:\Windows\Cursors\my_nwpen.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v SizeNS /t REG_SZ /d "C:\Windows\Cursors\my_sizens.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v SizeWE /t REG_SZ /d "C:\Windows\Cursors\my_sizewe.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v UpArrow /t REG_SZ /d "C:\Windows\Cursors\my_uparrow.cur" /f
+reg add "HKCU\Control Panel\Cursors" /v IBeam /t REG_SZ /d "C:\Windows\Cursors\my_ibeam.cur" /f
+
+
 :: Done
 echo All tasks completed.
 pause
