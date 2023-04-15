@@ -1,5 +1,15 @@
 @echo off
 
+:: Check if running as administrator
+net session >nul 2>&1
+if %errorLevel% == 0 (
+    echo Running with administrator privileges...
+) else (
+    echo This script requires administrator privileges. Please run as administrator and try again.
+    pause
+    exit
+)
+
 :: Check internet connection and speed
 echo Checking internet connection and speed...
 :check_internet
