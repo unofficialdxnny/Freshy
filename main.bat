@@ -1,8 +1,9 @@
 @echo off
 
-:: Install Chocolatey package manager
-echo Installing Chocolatey...
-powershell.exe -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+:: Check internet connection and speed
+echo Checking internet connection and speed...
+:check_internet
+powershell.exe -command "$ping = Test-Connection google.com -Count 1 -ErrorAction SilentlyContinue; if($ping){Write-Host 'Internet is connected'; $speedtest = Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py' -UseBasicParsing; python -c $speedtest.content | Out-File -FilePath speedtest.txt; Get-Content -Path speedtest.txt; Remove-Item -Path speedtest.txt;} else {Write-Host -ForegroundColor Red 'CONNECT TO INTERNET'; Start-Sleep -Seconds 10; goto check_internet;}"
 
 :: Install software using Chocolatey from apps.txt file
 echo Installing software from apps.txt...
