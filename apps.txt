@@ -1,1 +1,10 @@
-your app names here
+googlechrome
+vlc
+7zip
+notepadplusplus
+git
+nodejs
+python
+vscode
+winrar
+adobereader
