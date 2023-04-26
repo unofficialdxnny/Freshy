@@ -16,7 +16,10 @@
 // });
 // 
 
-const { ipcRenderer } = require('electron');
 
-// Send a message to the main process to open the batch file
-ipcRenderer.send('open-batch-file', app.getAppPath() + 'chocoInstall.bat');
+
+
+
+
+
+    
