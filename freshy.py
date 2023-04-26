@@ -1,4 +1,6 @@
 import tkinter as tk
+import subprocess
+
 
 root = tk.Tk()
 
@@ -35,31 +37,47 @@ slogan.place(relx=0.5, rely=0.70, anchor="center")
 def hide_welcome():
     welcome.destroy()
     slogan.destroy()
-    show_cards()
-
+    
 root.after(5000, hide_welcome)
 
-# Function to create and display the set of cards
-def show_cards():
-    # Create a frame to hold the cards
-    cards_frame = tk.Frame(root, bg="#0D1117")
-    cards_frame.place(relx=0.5, rely=0.5, anchor="center")
-    
-    # Create the cards and add them to the frame
-    for i in range(2):
-        card_frame = tk.Frame(cards_frame, bg="#1F2833", padx=50, pady=50)
-        card_frame.pack(side=tk.LEFT, padx=20, pady=20)
-        
-        card_image = tk.PhotoImage(file=f"card{i+1}.png")
-        card_label = tk.Label(card_frame, image=card_image, bg="#1F2833")
-        card_label.image = card_image
-        card_label.pack(padx=10, pady=10)
-        
-        card_text = tk.Label(card_frame, text=f"Card {i+1}", fg="white", bg="#1F2833", font=("Arial", 20))
-        card_text.pack(padx=10, pady=10)
-        
-        download_button = tk.Button(card_frame, text="Download", bg="#45A29E", fg="white", font=("Arial", 14))
-        download_button.pack(padx=10, pady=10)
+# Define the URLs for each image
+discord_url = "https://discord.gg/8WyFZF3kqn"
+github_url = "https://github.com/unofficialdxnny/Freshy"
+instagram_url = "https://www.instagram.com/unofficialdxnny"
 
+# Load the images
+discord_img = tk.PhotoImage(file="discord.png")
+github_img = tk.PhotoImage(file="github.png")
+instagram_img = tk.PhotoImage(file="instagram.png")
+
+# Define the labels for each image
+discord_label = tk.Label(root, image=discord_img, bd=0, cursor="hand2")
+github_label = tk.Label(root, image=github_img, bd=0, cursor="hand2")
+instagram_label = tk.Label(root, image=instagram_img, bd=0, cursor="hand2")
+
+# Define the click events for each label
+def open_discord(event):
+    
+    import webbrowser
+    webbrowser.open_new(discord_url)
+
+def open_github(event):
+    
+    import webbrowser
+    webbrowser.open_new(github_url)
+
+def open_instagram(event):
+    
+    import webbrowser
+    webbrowser.open_new(instagram_url)
+
+discord_label.bind("<Button-1>", open_discord)
+github_label.bind("<Button-1>", open_github)
+instagram_label.bind("<Button-1>", open_instagram)
+
+# Place the labels on the canvas
+discord_label.place(relx=0.8, rely=0.9, anchor="center")
+github_label.place(relx=0.95, rely=0.9, anchor="center")
+instagram_label.place(relx=0.2, rely=0.9, anchor="center")
 
 root.mainloop()
