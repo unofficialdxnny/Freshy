@@ -15,6 +15,8 @@ root.geometry(f"{window_width}x{window_height}")
 root.title("Freshy")
 root.configure(bg="#0D1117")
 root.iconbitmap("icon.ico")
+root.resizable(False, False)
+
 
 # Create a label with the welcome message and set the font size
 welcome = tk.Label(root, text=f"Freshy", fg="white", bg="#0D1117", font=("Arial", font_size))
