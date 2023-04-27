@@ -33,10 +33,21 @@ slogan = tk.Label(root, text=f"Setup a fresh windows OS with easy", fg="white", 
 slogan.place(relx=0.5, rely=0.70, anchor="center")
 
 
+def main_screen():
+    # Create a new label with the text and font size
+    label = tk.Label(root, text="The #1 Windows Setup Automator", fg="white", bg="#694966", font=("Arial", 10))
+    # Place the label at the top-middle of the screen
+    label.place(relx=0.05, rely=0, anchor="n")
+
+
 # Schedule the disappearance of the label after 5 seconds
 def hide_welcome():
     welcome.destroy()
     slogan.destroy()
+    main_screen()
+
+
+
     
 root.after(5000, hide_welcome)
 
